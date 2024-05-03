@@ -8,6 +8,11 @@ import { createPinia } from "pinia";
 
 const pinia = createPinia();
 
+// import { getCategory } from "./apis/testApi";
+// getCategory().then((res) => {
+//   console.log(res);
+// });
+
 const app = createApp(App);
 app.use(pinia);
 app.use(ElementPlus);
