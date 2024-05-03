@@ -1,11 +1,9 @@
 <template>
   <div>
-    <MyList></MyList>
+    <el-button type="primary">primary</el-button>
   </div>
 </template>
 
-<script setup>
-import MyList from "./components/MyList.vue";
-</script>
+<script setup></script>
 
-<style></style>
+<style scoped></style>

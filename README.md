@@ -21,6 +21,7 @@ emit('get-message','你是小猪')传递数据
 顶层组件通过provite('key',数据)，底层组件通过const 数据 = inject('key') 接收数据
 
 ##  pinia
+
 /store/Count.js
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
@@ -78,3 +79,8 @@ onMounted(() => {
   getList();
 });
 </script>
+
+##  scss
+![alt text](image.png)
+
+
