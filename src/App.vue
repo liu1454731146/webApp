@@ -1,6 +1,5 @@
 <template>
   <div>
-    <el-button type="primary">primary</el-button>
     <!-- 一级路由出口文件 -->
     <router-view></router-view>
   </div>

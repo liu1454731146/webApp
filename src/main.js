@@ -8,7 +8,7 @@ import router from "./router";
 
 // 引入初始化样式文件
 import "./styles/common.scss";
-
+import "@/styles/var.scss";
 const pinia = createPinia();
 
 // import { getCategory } from "./apis/testApi";
