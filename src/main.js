@@ -9,6 +9,10 @@ import router from "./router";
 // 引入初始化样式文件
 import "./styles/common.scss";
 import "@/styles/var.scss";
+
+// 引入懒加载指令插件并注册
+import { lazyPlugin } from "@/directives/index";
+
 const pinia = createPinia();
 
 // import { getCategory } from "./apis/testApi";
@@ -19,4 +23,7 @@ const app = createApp(App);
 app.use(pinia);
 app.use(router);
 app.use(ElementPlus);
+app.use(lazyPlugin);
 app.mount("#app");
+
+// 定义全局指令

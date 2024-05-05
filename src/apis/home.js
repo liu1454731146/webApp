@@ -6,3 +6,17 @@ export function getBannerApi() {
     url: "/home/banner",
   });
 }
+
+// 获取new
+export function getNewApi() {
+  return httpInstance({
+    url: "/home/new",
+  });
+}
+
+// 获取hot
+export function getHotApi() {
+  return httpInstance({
+    url: "/home/hot",
+  });
+}
