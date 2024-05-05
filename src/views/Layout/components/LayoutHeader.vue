@@ -5,7 +5,11 @@
         <RouterLink to="/">小兔鲜</RouterLink>
       </h1>
       <ul class="app-header-nav">
-        <li class="home" v-for="item in categoryList" :key="item.id">
+        <li
+          class="home"
+          v-for="item in categoryStory.categoryList"
+          :key="item.id"
+        >
           <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>
@@ -19,17 +23,8 @@
 </template>
 
 <script setup>
-import { getCategoryAPI } from "@/apis/layout";
-import { onMounted, ref } from "vue";
-const categoryList = ref([]);
-const getCategory = async () => {
-  const res = await getCategoryAPI();
-  categoryList.value = res.result;
-  console.log(res.result);
-};
-onMounted(() => {
-  getCategory();
-});
+import { useCategoryStory } from "@/stores/category";
+const categoryStory = useCategoryStory();
 </script>
 
 <style scoped lang="scss">
@@ -101,36 +96,6 @@ onMounted(() => {
       width: 140px;
       padding-left: 5px;
       color: #666;
-    }
-  }
-
-  .cart {
-    width: 50px;
-
-    .curr {
-      height: 32px;
-      line-height: 32px;
-      text-align: center;
-      position: relative;
-      display: block;
-
-      .icon-cart {
-        font-size: 22px;
-      }
-
-      em {
-        font-style: normal;
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: 1px 6px;
-        line-height: 1;
-        background: blue;
-        color: #fff;
-        font-size: 12px;
-        border-radius: 10px;
-        font-family: Arial;
-      }
     }
   }
 }
