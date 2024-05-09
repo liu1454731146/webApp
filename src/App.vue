@@ -5,6 +5,8 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import index from "./components/EditTable.vue";
+</script>
 
 <style scoped></style>
