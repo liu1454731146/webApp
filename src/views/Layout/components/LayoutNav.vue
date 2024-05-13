@@ -2,12 +2,16 @@
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <template v-if="true">
+        <template v-if="useStore.userInfo.token">
           <li>
-            <a><i class="iconfont icon-user"></i>周杰伦</a>
+            <a
+              ><i class="iconfont icon-user"></i
+              >{{ useStore.userInfo.account }}</a
+            >
           </li>
           <li>
             <el-popconfirm
+              @confirm="confirm"
               title="确认退出吗?"
               confirm-button-text="确认"
               cancel-button-text="取消"
@@ -20,8 +24,11 @@
           <li><a href="javascript:;">我的订单</a></li>
           <li><a href="javascript:;">会员中心</a></li>
         </template>
+
         <template v-else>
-          <li><a href="javascript:;">请先登录</a></li>
+          <li>
+            <a href="javascript:;" @click="$router.push('/login')">请先登录</a>
+          </li>
           <li><a href="javascript:;">帮助中心</a></li>
           <li><a href="javascript:;">关于我们</a></li>
         </template>
@@ -30,7 +37,18 @@
   </nav>
 </template>
 
-<script setup></script>
+<script setup>
+import { useUserStore } from "@/stores/users";
+import { useRouter } from "vue-router";
+const router = useRouter();
+const useStore = useUserStore();
+const confirm = () => {
+  //  实现退出登录逻辑,清楚用户信息
+  useStore.clearUserInfo();
+  //  跳转用户登录页面
+  router.push("/login");
+};
+</script>
 
 <style scoped lang="scss">
 .app-topnav {
